@@ -1,0 +1,35 @@
+<p-panel header="Решение СЛАУ методом прямой итерации ">
+  <p-fieldset legend="Размерность матрицы коэффициентов">
+    <p class="ui-float-label">
+      <input id="float-input" type="number" size="10" pInputText [(ngModel)]="mdlRow"
+          (ngModelChange)="changeMatrix()"/>
+      <label for="float-input">Строки</label>
+    </p>
+    <p class="ui-float-label">
+      <input id="float-input" type="number" size="10" pInputText [(ngModel)]="mdlCol"
+        (ngModelChange)="changeMatrix()"/>
+      <label for="float-input">Колонки</label>
+    </p>
+  </p-fieldset>
+  <p></p>
+  <p-fieldset legend="Матрица коэффициентов">
+    <p-dataTable [value]="mdlCoeffs" [editable]="true" >
+      <p-column *ngFor="let col of cols" [field]="col.field" [editable]="true"></p-column>
+    </p-dataTable>
+  </p-fieldset>
+  <p></p>
+  <p-fieldset legend="Решение">
+    <p class="ui-float-label">
+      <input id="float-input" type="text" size="10" pInputText [(ngModel)]="mdlEpsilon" />
+      <label for="float-input">Погрешность</label>
+    </p>
+    <p><button pButton type="button" (click)="onSolve()" label=">>"></button></p>
+    <p-dataTable [value]="mdlSolve" [editable]="true">
+        <p-column *ngFor="let col of cols" [field]="col.field" [editable]="true" ></p-column>
+   </p-dataTable>
+  </p-fieldset>
+
+
+</p-panel>
+
+
