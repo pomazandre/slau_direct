@@ -1,15 +1,24 @@
+<p-messages [(value)]="mdlMsgs" [closable]="true"></p-messages>
+<div class="ui-g">
+<div class="ui-g-4">
+</div>
+<div class="ui-g-4">
 <p-panel header="Решение СЛАУ методом прямой итерации ">
   <p-fieldset legend="Размерность матрицы коэффициентов">
     <p class="ui-float-label">
-      <input id="float-input" type="number" size="10" pInputText [(ngModel)]="mdlRow"
-          (ngModelChange)="changeMatrix()"/>
+      <input id="float-input" type="number" size="5" pInputText [(ngModel)]="mdlRow"/>
       <label for="float-input">Строки</label>
     </p>
     <p class="ui-float-label">
-      <input id="float-input" type="number" size="10" pInputText [(ngModel)]="mdlCol"
-        (ngModelChange)="changeMatrix()"/>
+      <input id="float-input" type="number" size="5" pInputText [(ngModel)]="mdlCol" />
       <label for="float-input">Колонки</label>
     </p>
+  </p-fieldset>
+  <p></p>
+  <p-fieldset legend="Вектор b">
+    <p-dataTable [value]="mdlVectorB" [editable]="true" >
+      <p-column *ngFor="let col of cols" [field]="col.field" [editable]="true"></p-column>
+    </p-dataTable>
   </p-fieldset>
   <p></p>
   <p-fieldset legend="Матрица коэффициентов">
@@ -28,8 +37,11 @@
         <p-column *ngFor="let col of cols" [field]="col.field" [editable]="true" ></p-column>
    </p-dataTable>
   </p-fieldset>
-
-
 </p-panel>
+</div>
+<div class="ui-g-4">
+</div>
+</div>
+
 
 

@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DataTableModule, SharedModule, PanelModule,
         InputTextModule, FieldsetModule, ButtonModule } from 'primeng/primeng';
-
+import {MessagesModule} from 'primeng/primeng';
 import { AppComponent } from './app.component';
+import { DecisionService } from './services/solve';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { AppComponent } from './app.component';
     FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     FieldsetModule,
     PanelModule,
     ButtonModule,
@@ -22,9 +25,10 @@ import { AppComponent } from './app.component';
     DataTableModule,
     SharedModule,
     ButtonModule,
-    FieldsetModule
+    FieldsetModule,
+    MessagesModule
   ],
-  providers: [],
+  providers: [DecisionService],
   bootstrap: [AppComponent]
 })
 
